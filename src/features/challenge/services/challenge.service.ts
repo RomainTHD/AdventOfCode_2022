@@ -12,7 +12,7 @@ export class ChallengeService {
 	public getChallenge(id: number): Observable<Challenge | null> {
 		return from(import(`../../../solutions/day${id}.ts`))
 			.pipe(catchError(() => of(null)))
-			.pipe(map((module) => new module.default()));
+			.pipe(map((module) => (module === null ? null : new module.default())));
 	}
 
 	public getInput(id: number): Observable<Input | null> {

@@ -27,6 +27,9 @@ export class ChallengeByIdComponent implements OnInit {
 			} else {
 				forkJoin([this.challengeService.getChallenge(id), this.challengeService.getInput(id)]).subscribe(
 					([challenge, input]) => {
+						if (challenge === null || input === null) {
+							this.router.navigate(["/challenge/unknown"]).then();
+						}
 						this.challenge = challenge;
 						this.input = input;
 					},

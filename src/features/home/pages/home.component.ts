@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { forkJoin, Observable } from "rxjs";
-import { ChallengeService } from "../challenge/challenge.service";
+import { ChallengeService } from "../../challenge/services/challenge.service";
 
 @Component({
 	selector: "app-home",

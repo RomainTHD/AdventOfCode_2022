@@ -12,7 +12,7 @@ export class UnwrapPipe implements PipeTransform {
 		this.asyncPipe = new AsyncPipe(ref);
 	}
 
-	transform<T>(value: Observable<T> | T): T | null {
+	public transform<T>(value: Observable<T> | T): T | null {
 		return this.asyncPipe.transform(value instanceof Observable ? value : of(value));
 	}
 }

@@ -1,8 +1,8 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { ChallengeComponent } from "./challenge/challenge.component";
-import { HomeComponent } from "./home/home.component";
-import { UnknownChallengeComponent } from "./unknown-challenge/unknown-challenge.component";
+import { ChallengeByIdComponent } from "./challenge/pages/byID/challenge-by-id.component";
+import { HomeComponent } from "./home/pages/home.component";
+import { UnknownChallengeComponent } from "./challenge/pages/unknown/unknown-challenge.component";
 
 const routes: Routes = [
 	{
@@ -16,7 +16,6 @@ const routes: Routes = [
 	{
 		path: "challenge",
 		component: HomeComponent,
-		pathMatch: "full",
 	},
 	{
 		path: "challenge",
@@ -24,7 +23,7 @@ const routes: Routes = [
 			{ path: "unknown", component: UnknownChallengeComponent },
 			{
 				path: ":id",
-				component: ChallengeComponent,
+				component: ChallengeByIdComponent,
 			},
 		],
 	},
@@ -35,4 +34,4 @@ const routes: Routes = [
 	imports: [RouterModule.forRoot(routes)],
 	exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class FeaturesRoutingModule {}

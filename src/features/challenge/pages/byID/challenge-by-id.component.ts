@@ -1,15 +1,15 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { forkJoin } from "rxjs";
-import { Challenge, Input } from "../solutions/meta/challenge";
-import { ChallengeService } from "./challenge.service";
+import { Challenge, Input } from "../../../../solutions/meta/challenge";
+import { ChallengeService } from "../../services/challenge.service";
 
 @Component({
-	selector: "app-challenge",
-	templateUrl: "./challenge.component.html",
-	styleUrls: ["./challenge.component.scss"],
+	selector: "app-challenge-by-id",
+	templateUrl: "./challenge-by-id.component.html",
+	styleUrls: ["./challenge-by-id.component.scss"],
 })
-export class ChallengeComponent implements OnInit {
+export class ChallengeByIdComponent implements OnInit {
 	public challenge: Challenge | null = null;
 	public input: Input | null = null;
 

@@ -2,19 +2,19 @@ import { HttpClientModule } from "@angular/common/http";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { RouterTestingModule } from "@angular/router/testing";
 
-import { ChallengeComponent } from "./challenge.component";
+import { ChallengeByIdComponent } from "./challenge-by-id.component";
 
 describe("ChallengeComponent", () => {
-	let component: ChallengeComponent;
-	let fixture: ComponentFixture<ChallengeComponent>;
+	let component: ChallengeByIdComponent;
+	let fixture: ComponentFixture<ChallengeByIdComponent>;
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			imports: [RouterTestingModule, HttpClientModule],
-			declarations: [ChallengeComponent],
+			declarations: [ChallengeByIdComponent],
 		}).compileComponents();
 
-		fixture = TestBed.createComponent(ChallengeComponent);
+		fixture = TestBed.createComponent(ChallengeByIdComponent);
 		component = fixture.componentInstance;
 		fixture.detectChanges();
 	});

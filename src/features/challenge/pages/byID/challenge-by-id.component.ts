@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { forkJoin } from "rxjs";
-import { Challenge, Input } from "../../../../solutions/meta/challenge";
+import { Challenge, RawInput } from "../../../../solutions/meta/challenge";
 import { ChallengeService } from "../../services/challenge.service";
 
 @Component({
@@ -10,8 +10,8 @@ import { ChallengeService } from "../../services/challenge.service";
 	styleUrls: ["./challenge-by-id.component.scss"],
 })
 export class ChallengeByIdComponent implements OnInit {
-	public challenge: Challenge | null = null;
-	public input: Input | null = null;
+	public challenge: Challenge<unknown> | null = null;
+	public input: RawInput | null = null;
 
 	public constructor(
 		private readonly route: ActivatedRoute,

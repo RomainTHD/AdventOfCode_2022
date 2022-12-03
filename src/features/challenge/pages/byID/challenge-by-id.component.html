@@ -1,9 +1,9 @@
 <ng-container *ngIf="challenge && input">
 	<span>
-		Result of part 1: <span>{{ challenge.part1(input) | unwrap }}</span>
+		Result of part 1: <span>{{ challenge.part1(challenge.transform(input)) | unwrap }}</span>
 	</span>
 	<br />
 	<span>
-		Result of part 2: <span>{{ challenge.part2(input) | unwrap }}</span>
+		Result of part 2: <span>{{ challenge.part2(challenge.transform(input)) | unwrap }}</span>
 	</span>
 </ng-container>

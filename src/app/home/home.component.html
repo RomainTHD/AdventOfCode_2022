@@ -1,0 +1,7 @@
+<mat-list role="list">
+	<mat-list-item *ngFor="let day of days" role="listitem">
+		<a [ariaCurrentWhenActive]="'page'" [routerLink]="'/challenge/' + day" routerLinkActive="active">
+			Challenge {{ day }}
+		</a></mat-list-item
+	>
+</mat-list>

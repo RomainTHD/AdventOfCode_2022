@@ -9,6 +9,7 @@
 		"test": "ng test --browsers ChromeHeadless --code-coverage --watch=false",
 		"test:dev": "ng test --browsers Chrome --code-coverage",
 		"lint": "ng lint",
+		"lint:fix": "ng lint --fix --max-warnings=0",
 		"prepare": "husky install",
 		"format": "prettier --write ."
 	},

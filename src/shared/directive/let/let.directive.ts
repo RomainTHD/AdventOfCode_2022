@@ -12,7 +12,7 @@ export class LetDirective {
 	private readonly context: Context;
 	private hasView = false;
 
-	public constructor(private templateRef: TemplateRef<unknown>, private vcRef: ViewContainerRef) {
+	public constructor(private readonly templateRef: TemplateRef<unknown>, private readonly vcRef: ViewContainerRef) {
 		this.context = {
 			$implicit: null,
 			appLet: null,

@@ -1,4 +1,4 @@
-import { Challenge, RawInput, Solution } from "./meta/challenge";
+import { Challenge, RawInput, Solution } from "./template/challenge";
 
 enum Shape {
 	Rock,
@@ -12,25 +12,31 @@ enum End {
 	Win,
 }
 
-type Input = [Shape, { shape: Shape; end: End }][];
+type Input1 = [Shape, Shape][];
+type Input2 = [Shape, End][];
 
-export default class Day2 extends Challenge<Input> {
-	public override transform(rawInput: RawInput): Input {
+export default class Day2 extends Challenge<Input1, Input2> {
+	public override transform1(rawInput: RawInput): Input1 {
 		return rawInput.map((line) => {
 			const [other, me] = line.split(" ");
-			return [this.stringToShape(other), { shape: this.stringToShape(me), end: this.stringToEnd(me) }];
+			return [this.stringToShape(other), this.stringToShape(me)];
 		});
 	}
 
-	public override part1(input: Input): Solution {
-		return input
-			.map(([other, { shape: me }]) => this.shapeToScore(me) + this.gameToScore(other, me))
-			.reduce((a, b) => a + b);
+	public override transform2(rawInput: RawInput): Input2 {
+		return rawInput.map((line) => {
+			const [other, me] = line.split(" ");
+			return [this.stringToShape(other), this.stringToEnd(me)];
+		});
 	}
 
-	public override part2(input: Input): Solution {
+	public override part1(input: Input1): Solution {
+		return input.map(([other, me]) => this.shapeToScore(me) + this.gameToScore(other, me)).reduce((a, b) => a + b);
+	}
+
+	public override part2(input: Input2): Solution {
 		return input
-			.map(([other, { end }]) => this.endToScore(end) + this.shapeToScore(this.endToShape(other, end)))
+			.map(([other, end]) => this.endToScore(end) + this.shapeToScore(this.endToShape(other, end)))
 			.reduce((a, b) => a + b);
 	}
 

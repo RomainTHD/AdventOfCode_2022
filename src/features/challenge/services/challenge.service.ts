@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { catchError, map, Observable, of, from } from "rxjs";
-import { Challenge, RawInput } from "../../../solutions/meta/challenge";
+import { Challenge, RawInput } from "../../../solutions/template/challenge";
 
 @Injectable({
 	providedIn: "root",

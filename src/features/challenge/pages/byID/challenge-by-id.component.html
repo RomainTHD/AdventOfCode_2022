@@ -1,9 +1,14 @@
+<app-back-button></app-back-button>
 <ng-container *ngIf="challenge && input">
-	<span>
-		Result of part 1: <span>{{ challenge.part1(challenge.transform(input)) | unwrap }}</span>
-	</span>
-	<br />
-	<span>
-		Result of part 2: <span>{{ challenge.part2(challenge.transform(input)) | unwrap }}</span>
-	</span>
+	<mat-card *ngFor="let n of [1, 2]">
+		<mat-card-header>
+			<mat-card-title>Result of part {{ n }}</mat-card-title>
+		</mat-card-header>
+		<mat-card-content *appLet="getChallengeAnswer(n) as answer">
+			<span *ngIf="answer !== undefined; else noAnswer">{{ answer }}</span>
+			<ng-template #noAnswer>
+				<span><i>Not answered yet</i></span>
+			</ng-template>
+		</mat-card-content>
+	</mat-card>
 </ng-container>

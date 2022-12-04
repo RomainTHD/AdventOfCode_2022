@@ -1,9 +1,9 @@
-import { Solution, Challenge, RawInput } from "./meta/challenge";
+import { Solution, Challenge, RawInput } from "./template/challenge";
 
 type Input = (number | null)[];
 
 export default class Day1 extends Challenge<Input> {
-	public override transform(rawInput: RawInput): Input {
+	public override transform1(rawInput: RawInput): Input {
 		return rawInput.map((line) => (line === "" ? null : parseInt(line, 10)));
 	}
 

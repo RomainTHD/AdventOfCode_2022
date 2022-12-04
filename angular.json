@@ -84,6 +84,14 @@
 						"scripts": []
 					}
 				},
+				"deploy": {
+					"builder": "angular-cli-ghpages:deploy",
+					"options": {
+						"baseHref": "/AdventOfCode_2022/",
+						"branch": "gh-pages",
+						"message": "ci: Auto-deploy to GitHub Pages"
+					}
+				},
 				"lint": {
 					"builder": "@angular-eslint/builder:lint",
 					"options": {

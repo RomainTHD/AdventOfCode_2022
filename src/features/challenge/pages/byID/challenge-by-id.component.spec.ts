@@ -1,5 +1,6 @@
 import { HttpClientModule } from "@angular/common/http";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { MatCardModule } from "@angular/material/card";
 import { RouterTestingModule } from "@angular/router/testing";
 import { SharedModule } from "../../../../shared/shared.module";
 
@@ -11,7 +12,7 @@ describe("ChallengeByIdComponent", () => {
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			imports: [RouterTestingModule, HttpClientModule, SharedModule],
+			imports: [RouterTestingModule, HttpClientModule, SharedModule, MatCardModule],
 			declarations: [ChallengeByIdComponent],
 		}).compileComponents();
 

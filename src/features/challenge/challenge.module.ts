@@ -1,4 +1,3 @@
-import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { MatCardModule } from "@angular/material/card";
 import { BrowserModule } from "@angular/platform-browser";
@@ -12,7 +11,7 @@ import { ChallengeService } from "./services/challenge.service";
 @NgModule({
 	declarations: [ChallengeByIdComponent, UnknownChallengeComponent],
 	exports: [ChallengeByIdComponent, UnknownChallengeComponent],
-	imports: [SharedModule, BrowserModule, RouterModule, HttpClientModule, BrowserAnimationsModule, MatCardModule],
+	imports: [SharedModule, BrowserModule, RouterModule, BrowserAnimationsModule, MatCardModule],
 	providers: [ChallengeService],
 })
 export class ChallengeModule {}

@@ -1,6 +1,22 @@
 {
 	"name": "advent-of-code-2022",
 	"version": "1.0.0",
+	"description": "Advent of Code 2022",
+	"funding": {
+		"url": "https://github.com/sponsors/RomainTHD/",
+		"type": "individual"
+	},
+	"keywords": [
+		"angular",
+		"angular-material",
+		"advent-of-code"
+	],
+	"homepage": "https://github.com/RomainTHD/AdventOfCode_2022",
+	"author": "Romain THD",
+	"license": "AGPL-3.0-or-later",
+	"bugs": {
+		"url": "https://github.com/RomainTHD/AdventOfCode_2022/issues"
+	},
 	"scripts": {
 		"ng": "ng",
 		"start": "ng serve",
@@ -10,6 +26,7 @@
 		"test:dev": "ng test --browsers Chrome --code-coverage",
 		"lint": "ng lint",
 		"lint:fix": "ng lint --fix --max-warnings=0",
+		"deploy:gh-pages": "ng deploy",
 		"prepare": "husky install",
 		"format": "prettier --write ."
 	},
@@ -44,6 +61,7 @@
 		"@types/node": "^18.11.10",
 		"@typescript-eslint/eslint-plugin": "5.44.0",
 		"@typescript-eslint/parser": "5.44.0",
+		"angular-cli-ghpages": "^1.0.5",
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-prettier": "^4.2.1",

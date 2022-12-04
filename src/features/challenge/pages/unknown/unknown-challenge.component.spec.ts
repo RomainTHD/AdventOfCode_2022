@@ -1,4 +1,8 @@
+import { HttpClientModule } from "@angular/common/http";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { MatCardModule } from "@angular/material/card";
+import { RouterTestingModule } from "@angular/router/testing";
+import { SharedModule } from "../../../../shared/shared.module";
 
 import { UnknownChallengeComponent } from "./unknown-challenge.component";
 
@@ -8,6 +12,7 @@ describe("UnknownChallengeComponent", () => {
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
+			imports: [RouterTestingModule, HttpClientModule, SharedModule, MatCardModule],
 			declarations: [UnknownChallengeComponent],
 		}).compileComponents();
 

@@ -1,6 +1,6 @@
 import { Challenge, RawInput, Solution } from "./template/challenge";
 
-export default class Day3 extends Challenge {
+export default class Day03 extends Challenge {
 	private readonly chars;
 
 	public constructor() {

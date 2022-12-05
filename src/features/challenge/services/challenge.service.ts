@@ -10,14 +10,16 @@ export class ChallengeService {
 	public constructor(private readonly http: HttpClient) {}
 
 	public getChallenge(id: number): Observable<Challenge<unknown> | null> {
-		return from(import(`../../../solutions/day${id}.ts`))
+		const idStr = id.toString().padStart(2, "0");
+		return from(import(`../../../solutions/day${idStr}.ts`))
 			.pipe(catchError(() => of(null)))
 			.pipe(map((module) => (module === null ? null : new module.default())));
 	}
 
 	public getInput(id: number): Observable<RawInput | null> {
+		const idStr = id.toString().padStart(2, "0");
 		return this.http
-			.get(`/assets/static/inputs/day${id}.txt`, { responseType: "text" })
+			.get(`/assets/static/inputs/day${idStr}.txt`, { responseType: "text" })
 			.pipe(catchError(() => of(null)))
 			.pipe(
 				map((input) => {

@@ -1,6 +1,6 @@
 module.exports = function (config) {
 	config.set({
-		files: [{ pattern: "src/assets/static/inputs/day1.txt", included: false, watched: false, served: true }],
+		files: [{ pattern: "src/assets/static/inputs/day01.txt", included: false, watched: false, served: true }],
 		basePath: "",
 		frameworks: ["jasmine", "@angular-devkit/build-angular"],
 		plugins: [

@@ -15,7 +15,7 @@ enum End {
 type Input1 = [Shape, Shape][];
 type Input2 = [Shape, End][];
 
-export default class Day2 extends Challenge<Input1, Input2> {
+export default class Day02 extends Challenge<Input1, Input2> {
 	public override transform1(rawInput: RawInput): Input1 {
 		return rawInput.map((line) => {
 			const [other, me] = line.split(" ");

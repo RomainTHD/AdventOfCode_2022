@@ -7,7 +7,7 @@ interface Pair {
 
 type Input = [Pair, Pair][];
 
-export default class Day4 extends Challenge<Input> {
+export default class Day04 extends Challenge<Input> {
 	public override transform1(rawInput: RawInput): Input {
 		return rawInput.map((line) => {
 			const [p1, p2] = line.split(",");

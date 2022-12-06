@@ -9,7 +9,7 @@ export class UnwrapPipe implements PipeTransform {
 	private readonly asyncPipe: AsyncPipe;
 
 	public constructor(ref: ChangeDetectorRef) {
-		this.asyncPipe = new AsyncPipe(ref || (null as unknown as ChangeDetectorRef));
+		this.asyncPipe = new AsyncPipe(ref);
 	}
 
 	public transform<T>(value: Observable<T> | T): T | null {

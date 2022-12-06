@@ -62,3 +62,22 @@ describe("Days", async () => {
 		});
 	});
 });
+
+describe("Challenge", () => {
+	let challenge: Challenge<unknown, unknown>;
+	const input: RawInput = [];
+
+	beforeEach(() => {
+		challenge = new Challenge();
+	});
+
+	it("shouldn't change input by default", () => {
+		expect(challenge.transform1(input)).toBe(input);
+		expect(challenge.transform2(input)).toBe(input);
+	});
+
+	it("should return undefined by default", () => {
+		expect(challenge.part1(input)).toBeUndefined();
+		expect(challenge.part2(input)).toBeUndefined();
+	});
+});

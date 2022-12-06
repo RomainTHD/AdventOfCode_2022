@@ -1,6 +1,6 @@
 module.exports = function (config) {
 	config.set({
-		files: [{ pattern: "src/assets/static/inputs/day01.txt", included: false, watched: false, served: true }],
+		files: [{ pattern: "src/assets/static/inputs/*.txt", watched: false, included: false, served: true }],
 		basePath: "",
 		frameworks: ["jasmine", "@angular-devkit/build-angular"],
 		plugins: [
@@ -10,6 +10,9 @@ module.exports = function (config) {
 			require("karma-coverage"),
 			require("@angular-devkit/build-angular/plugins/karma"),
 		],
+		proxies: {
+			"/assets/": "/base/src/assets/",
+		},
 		client: {
 			jasmine: {},
 			clearContext: false,

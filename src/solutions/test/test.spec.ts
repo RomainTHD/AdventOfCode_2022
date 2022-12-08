@@ -13,6 +13,8 @@ const solutions: [number, unknown | null, unknown | null][] = [
 	[4, 540, 872],
 	[5, "TQRFCBSJJ", "RMHFJNVFP"],
 	[6, 1034, 2472],
+	[7, null, null],
+	[8, 1763, 671160],
 ];
 
 @Component({

@@ -12,7 +12,7 @@ interface Node {
 	size: number;
 }
 
-interface File extends Node {}
+type File = Node;
 
 interface Directory extends Node {
 	children: Node[];
@@ -64,6 +64,7 @@ export default class Day07 extends Challenge<Input> {
 		rawInput.forEach((line) => {
 			if (line.startsWith("$")) {
 				if (line === "$ ls") {
+					// Nothing
 				} else {
 					const [, path] = line.match(/^\$ cd (.+)$/) || [];
 					if (path === "/") {

@@ -23,34 +23,10 @@ type Input = Directory;
 export default class Day07 extends Challenge<Input> {
 	private readonly SIZE_LIMIT = 100000;
 
-	public override transform1(rawInput: RawInput): Input {
-		/*
-		rawInput = [
-			"$ cd /",
-			"$ ls",
-			"dir a",
-			"14848514 b.txt",
-			"8504156 c.dat",
-			"dir d",
-			"$ cd a",
-			"$ ls",
-			"dir e",
-			"29116 f",
-			"2557 g",
-			"62596 h.lst",
-			"$ cd e",
-			"$ ls",
-			"584 i",
-			"$ cd ..",
-			"$ cd ..",
-			"$ cd d",
-			"$ ls",
-			"4060174 j",
-			"8033020 d.log",
-			"5626152 d.ext",
-			"7214296 k",
-		];*/
+	private readonly TOTAL_AVAILABLE = 70000000;
+	private readonly TOTAL_UNUSED = 30000000;
 
+	public override transform1(rawInput: RawInput): Input {
 		const root: Directory = {
 			name: "root",
 			type: NodeType.Directory,
@@ -101,19 +77,18 @@ export default class Day07 extends Challenge<Input> {
 
 	public override part1(root: Input): Solution {
 		this.calcSize(root);
-		return this.explore(root);
+		return this.getAllDirs(root, [])
+			.filter((dir) => dir.size <= this.SIZE_LIMIT)
+			.reduce((a, b) => a + b.size, 0);
 	}
 
-	private explore(dir: Directory): number {
-		return dir.children
-			.map((child) => {
-				if (child.type === NodeType.Directory) {
-					return this.explore(child as Directory) + (dir.size >= this.SIZE_LIMIT ? 0 : dir.size);
-				} else {
-					return 0;
-				}
-			})
-			.reduce((a, b) => a + b, 0);
+	public override part2(root: Input): Solution {
+		this.calcSize(root);
+		const unused = this.TOTAL_AVAILABLE - root.size;
+		const toFree = this.TOTAL_UNUSED - unused;
+		return this.getAllDirs(root, [])
+			.filter((dir) => dir.size >= toFree)
+			.sort((a, b) => a.size - b.size)[0].size;
 	}
 
 	private calcSize(dir: Directory): number {
@@ -127,5 +102,15 @@ export default class Day07 extends Challenge<Input> {
 			})
 			.reduce((a, b) => a + b, 0);
 		return dir.size;
+	}
+
+	private getAllDirs(root: Directory, dirs: Directory[]): Directory[] {
+		dirs.push(root);
+		root.children.forEach((child) => {
+			if (child.type === NodeType.Directory) {
+				this.getAllDirs(child as Directory, dirs);
+			}
+		});
+		return dirs;
 	}
 }

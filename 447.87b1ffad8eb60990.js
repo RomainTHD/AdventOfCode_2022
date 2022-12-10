@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkadvent_of_code_2022=self.webpackChunkadvent_of_code_2022||[]).push([[447],{447:(r,a,e)=>{e.r(a),e.d(a,{default:()=>n});var s=e(562);class n extends s.t{transform1(t){return super.transform1(t)}part1(t){return super.part1(t)}}}}]);
